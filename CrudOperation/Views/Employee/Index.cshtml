@@ -1,0 +1,40 @@
+﻿@model List<CrudOperation.Models.EmployeeDepartmentViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Employee Information</h2>
+
+<table class="table table-hover">
+
+    <tr>
+        <th>Employee Id</th> 
+        <th>FullName</th>
+        <th>Department Name</th>
+        <th>City</th>
+        <th>State</th>
+        <th>ZipCode</th>
+        <th>Edit</th>
+        <th>Delete</th>
+
+    </tr>
+
+    @foreach(var myData in Model)
+            {
+
+<tr>
+    <td>@myData.EmployeeId</td>
+    <td>@myData.FullName</td>
+    <td>@myData.DepartmentName</td>
+    <td>@myData.City</td>
+    <td>@myData.State</td>
+    <td>@myData.ZipCode</td>
+    <td><a href="@Url.Action("EditEmployee","Employee", new { employeeId = myData.EmployeeId})">Edit</a></td>
+    <td><a href="@Url.Action("DeleteEmployee","Employee", new { employeeId = myData.EmployeeId})">Delete</a></td>
+</tr>
+            
+
+            }
+
+</table>
+
